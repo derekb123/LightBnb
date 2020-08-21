@@ -194,7 +194,7 @@ exports.getAllProperties = getAllProperties;
  */
 const addProperty = function(property) {
   return pool.query(
-    `INSERT INTO users (
+    `INSERT INTO properties (
       owner_id,
       title,
       description,
@@ -212,20 +212,20 @@ const addProperty = function(property) {
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
       RETURNING *;
     `
-  , [properties.owner_id, 
-    properties.title, 
-    properties.description, 
-    properties.thumbnail_photo_url, 
-    properties.cover_photo_url, 
-    properties.cost_per_night, 
-    properties.street, 
-    properties.city, 
-    properties.province, 
-    properties.post_code, 
-    properties.country, 
-    properties.parking_spaces, 
-    properties.number_of_bathrooms, 
-    properties.number_of_bedrooms])
+  , [property.owner_id, 
+    property.title, 
+    property.description, 
+    property.thumbnail_photo_url, 
+    property.cover_photo_url, 
+    property.cost_per_night, 
+    property.street, 
+    property.city, 
+    property.province, 
+    property.post_code, 
+    property.country, 
+    property.parking_spaces, 
+    property.number_of_bathrooms, 
+    property.number_of_bedrooms])
   .then (res => res.rows[0]);
 
   // const propertyId = Object.keys(properties).length + 1;
